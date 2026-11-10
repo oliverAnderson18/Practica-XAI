@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
+.env
+models/*.pickle
+models/*.pkl
+.DS_Store
+Thumbs.db
