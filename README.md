@@ -27,14 +27,13 @@ El umbral que minimizada el coste para ambos modelos era 0.3, priorizando así l
 | Precisión (clase 1) | 0.1070 | 0.1196 |
 | Recall (clase 1) | **0.9000** | 0.8333 |
 | F1 (clase 1) | 0.1913 | **0.2092** |
-| ROC-AUC | **0.7278** | 0.7167 |
 | Verdaderos negativos (TN) | 479 | 644 |
 | Falsos positivos (FP) | 901 | 736 |
 | Falsos negativos (FN) | 12 | 20 |
 | Verdaderos positivos (TP) | 108 | 100 |
 | Coste en test (`70·FN + 3·FP`) | **3.543** | 3.608 |
 
-Vemos que ningún modelo destaca en todas las métricas. La regresión logra un coste ligeramente inferior, si se prioriza reducir falsas alarmas, el Random Forest es mejor. En ambos casos la precisión de la clase positiva es baja por lo que requiere de precaución. 
+Vemos que ningún modelo destaca en todas las métricas. La regresión logra un coste ligeramente inferior porque deja escapar menos ausencias (12 FN frente a 20), aunque genera más falsas alarmas. Si se prioriza reducir los falsos positivos, el Random Forest es mejor. En ambos casos la precisión de la clase positiva es baja por lo que requiere de precaución. 
 
 ## 5 Interpretabilidad y SHAP 
 
@@ -44,7 +43,7 @@ reservas_previas = -0.6974
 cambios_reserva = 0.336
 deposito_pagado = -0.3673
 
-Vemos que más reservas previas se asocian con una menor probabilidad de no presentarse, y en menor medida ocurre lo mismo con deposito_pagar. Por otra parte, más cambios en la reserva se asocian con una mayor probabilida de no presentarse.
+Vemos que más reservas previas se asocian con una menor probabilidad de no presentarse, y en menor medida ocurre lo mismo con deposito_pagado. Por otra parte, más cambios en la reserva se asocian con una mayor probabilida de no presentarse.
 
 En el random forest:
 
